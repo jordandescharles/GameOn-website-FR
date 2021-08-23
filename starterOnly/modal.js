@@ -14,7 +14,9 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const submit = document.querySelector('.btn-submit');
 
+
 // Elements by ID.
+const myForm = document.getElementById('myForm')
 const firstName = document.getElementById('first');
 const lastName = document.getElementById('last');
 const email = document.getElementById('email');
@@ -46,7 +48,7 @@ function closeModal() {
 // Accepte les lettres min ou maj et avec accent + le'-' pour les prenoms composés
 // avec un mini de deux lettre sans max
 const regex = /\s*[a-zA-Zéèàêîâ-]{2,}$/;
-// REGEX Mail
+// REGEX Mail 
 // Accepte les  formats entreprise @lenomdebidule.com
 // 1 @  max obligatoire
 const regexMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -149,9 +151,12 @@ submit.addEventListener('click', function(e){
 )
 
 // dernière verification avant envoi du formulaire ////////////////////////////////////////
-submit.addEventListener('click',validate);
-
-function validate() {
+//submit.addEventListener('click',validate);
+myForm.addEventListener('submit', function(e){
+ console.log(e)
+});
+function validate(e) {
+  console.log(e);
 // prenom ----------------------------------------------------
   if(firstName.value.trim() ==""){
     firstName.closest("div").setAttribute("data-error","le champs ne peux pas etre vide");
@@ -188,11 +193,11 @@ function validate() {
     cgu.closest("div").setAttribute("data-error-visible", true);
     return false;
   }
- 
+   e.preventDefault();
   return true;
- 
-}
 
+}
+/*
 if(validate()) {
   console.log('yessssssss')
   modalbgThx.style.display = "block";
@@ -201,4 +206,4 @@ if(validate()) {
 modalbgThx.addEventListener('click',closeThx);
 function closeThx(){
   modalbgThx.style.display = "none";
-}
+}*/
