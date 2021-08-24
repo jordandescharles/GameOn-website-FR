@@ -55,13 +55,14 @@
    
       <div class="bground">
         <div class="content">
-          <span class="close" id="closeThx"></span>
+          <span class="close" id="closeModal"></span>
           <div class="modal-body">
             <form
               id="myForm"
               name="reserve"
               action="index.html"
               method="get"
+              onsubmit="return validate();"
             >
               <div
                 class="formData" >
@@ -106,6 +107,7 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  required
                 /><br>
               </div>
               <div
@@ -116,7 +118,9 @@
                 class="text-control" 
                 id="quantity"
                 name="quantity" 
-                min="0" max="99">
+                min="0" max="99"
+                required>
+                
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div
@@ -221,9 +225,15 @@
       </div>
       <div class="bgroundThx">
         <div class="content">
-          <span class="close"></span>
+          <span class="close" id="closeThx"></span>
           <div class="modal-body">
-            <h1> Merci ! Votre réservation a été reçue.</h1>
+          <p> Merci ! <br> Votre réservation à été reçue.</p>
+            <input
+            class="btn-submit"
+            type="submit"
+            class="button"
+            value="fermer"
+          />
           </div>
         </div>
       </div>
