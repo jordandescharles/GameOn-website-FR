@@ -22,11 +22,6 @@ const birthdate = document.getElementById('birthdate');
 const quantity = document.getElementById('quantity');
 const cgu = document.getElementById('checkbox1');
 const ny = document.getElementById('location1');
-const sf = document.getElementById('location2');
-const seattle = document.getElementById('location3');
-const chicago = document.getElementById('location4');
-const boston= document.getElementById('location5');
-const portland = document.getElementById('location6');
 
 /* REGEX nom et prénoms
 Accepte les lettres min ou maj et avec accent + le'-' pour les prenoms composés
@@ -39,6 +34,7 @@ const regexMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 // verifie que la saisie est un chiffre et compris entre 0 et 7 l'evenement existe depuis 2014 :) 
 const regexQty =/^[01234567]{1}$/;
 // constantes de verifications
+const villes = document.getElementsByName("location"); // on met tous les inputs avec name "location" dans un array
 
 // FONCTIONS -------------------------------------------------------------------------------------
 
@@ -138,22 +134,18 @@ function verifCgu(){
 }
 // ----------------------------------- verif ville
 function verifVille(){
-  if(ny.checked == false && sf.checked == false && seattle.checked == false && chicago.checked == false && boston.checked == false && portland.checked == false   ){
-    ny.closest("div").setAttribute("data-error","Merci de choisir une ville");
-    ny.closest("div").setAttribute("data-error-visible", true);
-    return false;
-  }
-  else{
+for (var i = 0; i < villes.length; i++) { // on incrémente sur chaque index du tableau donc sur chaque "location"
+    if (villes[i].checked) { // dès qu'une location est check on renvoie true.
     ny.closest("div").setAttribute("data-error-visible", false);
-    return true;
-  }
+    return true;  
+    }
+      ny.closest("div").setAttribute("data-error","Merci de choisir une ville");
+      ny.closest("div").setAttribute("data-error-visible", true);
+      
 }
-function validate() {
-  return true;
 }
 
 // LISTENERS -----------------------------------------------------------
-
 
 // verification de la saisie en temps réel sur chaque input
 firstName.addEventListener('input',function(){ veriffirstName()});
@@ -172,7 +164,6 @@ submit.addEventListener('click', function(e){
     {
     closeModal();
     showThx();
-    validate();
     myForm.reset();
     }
 });
