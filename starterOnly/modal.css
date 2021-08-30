@@ -91,14 +91,12 @@ img {
   }
 }
 
-
-
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    
   }
 } 
 
@@ -412,7 +410,6 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  max-height: 74vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(14, 1fr);

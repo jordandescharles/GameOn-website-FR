@@ -22,6 +22,7 @@ const birthdate = document.getElementById('birthdate');
 const quantity = document.getElementById('quantity');
 const cgu = document.getElementById('checkbox1');
 const ny = document.getElementById('location1');
+const villes = document.getElementsByName("location"); // on met tous les inputs avec name "location" dans un array
 
 /* REGEX nom et prénoms
 Accepte les lettres min ou maj et avec accent + le'-' pour les prenoms composés
@@ -33,8 +34,9 @@ const regex = /\s*[a-zA-Zéèàêîâ-]{2,}$/;
 const regexMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 // verifie que la saisie est un chiffre et compris entre 0 et 7 l'evenement existe depuis 2014 :) 
 const regexQty =/^[01234567]{1}$/;
+
+const regexDate=/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
 // constantes de verifications
-const villes = document.getElementsByName("location"); // on met tous les inputs avec name "location" dans un array
 
 // FONCTIONS -------------------------------------------------------------------------------------
 
@@ -100,8 +102,14 @@ function verifDate(){
   if(birthdate.value.trim() ==""){
     birthdate.closest("div").setAttribute("data-error","Merci de rentrer votre date de naissance");
     birthdate.closest("div").setAttribute("data-error-visible", true);
+    
     return false;
 
+  }
+  else if (regexDate.test(birthdate.value) == false){
+    birthdate.closest("div").setAttribute("data-error","Merci d'entrer une date correcte");
+    birthdate.closest("div").setAttribute("data-error-visible", true);console.log(birthdate.value);
+    return false;
   }
   else{
     birthdate.closest("div").setAttribute("data-error-visible", false);
