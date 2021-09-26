@@ -1,5 +1,11 @@
-# Projet GameOn
-1. Forkez ce repo ;
-2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
-3. Il n'y a aucune dépendance ;
-4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
+GameOn javascript project :
+
+<a href="https://www.gifsanimes.com/cat-smileys-ordinateurs-318.htm"><img src="https://www.gifsanimes.com/data/media/318/smiley-ordinateur-image-animee-0017.gif" border="0" alt="smiley-ordinateur-image-animee-0017" /></a>
+
+<strong>HTML 5, CSS 3 and Javascript</strong>
+
+-> Css Animations<br />
+-> design with Flexbox<br />
+-> javascript Vanilla<br />
+
+
